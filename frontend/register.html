@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — CraftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container" style="justify-content: center;">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Auth Card Container -->
+  <div class="auth-page-container">
+    <div class="auth-card">
+      
+      <div class="auth-header">
+        <h2>Join CraftCart</h2>
+        <p>Create an account to support master artisans and track your orders</p>
+      </div>
+
+      <!-- Registration Form -->
+      <form id="register-form">
+        <div class="form-group">
+          <label class="form-label" for="reg-name">Full Name *</label>
+          <input type="text" class="form-input" id="reg-name" placeholder="Aarav Sharma" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Email Address *</label>
+          <input type="email" class="form-input" id="reg-email" placeholder="name@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-phone">Phone Number</label>
+          <input type="tel" class="form-input" id="reg-phone" placeholder="10-digit mobile number">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Password *</label>
+            <input type="password" class="form-input" id="reg-password" placeholder="••••••••" minlength="6" required autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reg-confirm-password">Confirm *</label>
+            <input type="password" class="form-input" id="reg-confirm-password" placeholder="••••••••" minlength="6" required autocomplete="new-password">
+          </div>
+        </div>
+
+        <div class="form-helper" style="margin-bottom: 1.25rem;">
+          Password must be at least 6 characters long.
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="register-submit-btn">
+          Create Account
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.75rem; font-size: 0.9rem; color: var(--text-secondary);">
+        Already have an account? <a href="login.html" style="color: var(--primary); font-weight: 600;">Sign in here</a>
+      </div>
+
+      <div style="text-align: center; margin-top: 1rem;">
+        <a href="index.html" style="font-size: 0.85rem; color: var(--text-muted);">&larr; Return to storefront</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

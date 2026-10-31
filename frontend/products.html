@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Collections — CraftCart Handcrafted Catalog</title>
+  <meta name="description" content="Browse handcrafted ceramics, leather accessories, organic clothing, and artisanal decor on CraftCart.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    ✨ Free Express Delivery on handcrafted orders above ₹999 | Use code <strong>CRAFT10</strong> for 10% off
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link active">Shop</a>
+        <a href="products.html?category=Home%20%26%20Living" class="nav-link">Living</a>
+        <a href="products.html?category=Fashion" class="nav-link">Apparel</a>
+        <a href="products.html?category=Electronics" class="nav-link">Tech & Craft</a>
+      </nav>
+
+      <form class="header-search" id="global-search-form">
+        <span class="search-icon-btn">🔍</span>
+        <input type="text" class="search-input" id="global-search-input" placeholder="Search handcrafted items...">
+      </form>
+
+      <div class="header-actions">
+        <a href="wishlist.html" class="action-btn" title="Saved Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="action-badge" id="nav-wishlist-badge">0</span>
+        </a>
+
+        <a href="cart.html" class="action-btn" title="Shopping Bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="action-badge" id="nav-cart-badge">0</span>
+        </a>
+
+        <div class="user-menu-wrapper">
+          <button class="action-btn" id="user-menu-btn" title="My Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="user-dropdown" id="user-dropdown"></div>
+        </div>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </div>
+      <button class="close-drawer-btn" id="close-drawer-btn">&times;</button>
+    </div>
+    <form class="mobile-search-form" id="mobile-search-form">
+      <input type="text" class="form-input" id="mobile-search-input" placeholder="Search craft items...">
+    </form>
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link"><span>🏡</span> Home</a>
+      <a href="products.html" class="mobile-nav-link active"><span>🛍️</span> Shop All</a>
+      <a href="products.html?category=Home%20%26%20Living" class="mobile-nav-link"><span>🏺</span> Home & Living</a>
+      <a href="products.html?category=Fashion" class="mobile-nav-link"><span>🧵</span> Fashion</a>
+      <a href="products.html?category=Electronics" class="mobile-nav-link"><span>⚡</span> Electronics</a>
+      <a href="products.html?category=Accessories" class="mobile-nav-link"><span>👜</span> Accessories</a>
+      <a href="products.html?category=Lifestyle" class="mobile-nav-link"><span>🌿</span> Lifestyle</a>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Shop Catalog</span>
+    </div>
+  </div>
+
+  <!-- Catalog Page Content -->
+  <div class="container shop-page-wrapper">
+    <div class="shop-layout">
+      
+      <!-- Filter Sidebar -->
+      <aside class="filter-sidebar">
+        <div class="filter-header">
+          <h3 class="filter-title">Filters</h3>
+          <button class="clear-filters-btn" id="clear-filters-btn">Clear All</button>
+        </div>
+
+        <!-- In-Sidebar Search -->
+        <div class="filter-block">
+          <h4 class="filter-heading">Search Catalog</h4>
+          <form id="shop-search-form">
+            <input type="text" class="form-input" id="shop-search-input" placeholder="Search keywords..." style="padding: 0.5rem 0.75rem; font-size: 0.85rem;">
+          </form>
+        </div>
+
+        <!-- Categories -->
+        <div class="filter-block">
+          <h4 class="filter-heading">Categories</h4>
+          <ul class="filter-list">
+            <li>
+              <label class="filter-checkbox-label">
+                <span>All Collections</span>
+                <input type="radio" name="category-filter" value="All" checked>
+              </label>
+            </li>
+            <li>
+              <label class="filter-checkbox-label">
+                <span>Electronics</span>
+                <input type="radio" name="category-filter" value="Electronics">
+              </label>
+            </li>
+            <li>
+              <label class="filter-checkbox-label">
+                <span>Fashion</span>
+                <input type="radio" name="category-filter" value="Fashion">
+              </label>
+            </li>
+            <li>
+              <label class="filter-checkbox-label">
+                <span>Home & Living</span>
+                <input type="radio" name="category-filter" value="Home & Living">
+              </label>
+            </li>
+            <li>
+              <label class="filter-checkbox-label">
+                <span>Accessories</span>
+                <input type="radio" name="category-filter" value="Accessories">
+              </label>
+            </li>
+            <li>
+              <label class="filter-checkbox-label">
+                <span>Lifestyle</span>
+                <input type="radio" name="category-filter" value="Lifestyle">
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-block">
+          <h4 class="filter-heading">Price Range (₹)</h4>
+          <form id="price-filter-form">
+            <div class="price-range-inputs">
+              <input type="number" id="min-price-input" placeholder="Min ₹" min="0">
+              <span class="text-muted">–</span>
+              <input type="number" id="max-price-input" placeholder="Max ₹" min="0">
+            </div>
+            <button type="submit" class="btn btn-secondary btn-sm btn-block" style="margin-top: 0.65rem;">
+              Apply Price
+            </button>
+          </form>
+        </div>
+
+        <!-- Customer Rating -->
+        <div class="filter-block">
+          <h4 class="filter-heading">Minimum Rating</h4>
+          <ul class="filter-list">
+            <li>
+              <label class="filter-checkbox-label">
+                <span>★ 4.5 & above</span>
+                <input type="radio" name="rating-filter" value="4.5">
+              </label>
+            </li>
+            <li>
+              <label class="filter-checkbox-label">
+                <span>★ 4.0 & above</span>
+                <input type="radio" name="rating-filter" value="4.0">
+              </label>
+            </li>
+            <li>
+              <label class="filter-checkbox-label">
+                <span>★ 3.0 & above</span>
+                <input type="radio" name="rating-filter" value="3.0">
+              </label>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Catalog Grid Area -->
+      <main class="shop-main">
+        
+        <!-- Controls Bar -->
+        <div class="shop-controls-bar">
+          <span class="results-count" id="results-count">Loading products...</span>
+          <div class="sort-select-wrapper">
+            <label for="sort-select" class="sort-label">Sort by:</label>
+            <select class="form-select" id="sort-select" style="padding: 0.45rem 1rem; width: auto; font-size: 0.875rem;">
+              <option value="newest">Newest Arrivals</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Top Customer Rated</option>
+              <option value="popularity">Most Popular</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="products-catalog-grid">
+          <!-- Rendered by products.js -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination-container">
+          <!-- Rendered by products.js -->
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">C</div>
+            Craft<span class="brand-accent">Cart</span>
+          </a>
+          <p class="footer-about">Independent e-commerce store dedicated to master artisan crafts.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="orders.html">Track Order</a></li>
+            <li><a href="cart.html">Shopping Bag</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="profile.html">My Account</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="admin.html">Admin Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>CodeAlpha Internship</h4>
+          <p style="font-size:0.875rem; color:#949e98; line-height:1.5;">Task 1: Simple E-Commerce Store Submission</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 CraftCart. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

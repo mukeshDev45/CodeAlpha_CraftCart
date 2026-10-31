@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CraftCart — Thoughtfully Handcrafted Lifestyle & Artisan Goods</title>
+  <meta name="description" content="Discover unique handcrafted ceramics, wooden decor, organic apparel, and artisanal lifestyle essentials at CraftCart.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    ✨ Free Express Delivery on handcrafted orders above ₹999 | Use code <strong>CRAFT10</strong> for 10% off
+  </div>
+
+  <!-- Main Site Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo" id="brand-logo-link">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="products.html" class="nav-link">Shop</a>
+        <a href="products.html?category=Home%20%26%20Living" class="nav-link">Living</a>
+        <a href="products.html?category=Fashion" class="nav-link">Apparel</a>
+        <a href="products.html?category=Electronics" class="nav-link">Tech & Craft</a>
+      </nav>
+
+      <!-- Search Bar -->
+      <form class="header-search" id="global-search-form">
+        <span class="search-icon-btn">🔍</span>
+        <input type="text" class="search-input" id="global-search-input" placeholder="Search handcrafted items, wood, ceramic...">
+      </form>
+
+      <!-- Actions (Wishlist, Cart, User) -->
+      <div class="header-actions">
+        <a href="wishlist.html" class="action-btn" id="nav-wishlist-btn" title="Saved Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="action-badge" id="nav-wishlist-badge">0</span>
+        </a>
+
+        <a href="cart.html" class="action-btn" id="nav-cart-btn" title="Shopping Bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="action-badge" id="nav-cart-badge">0</span>
+        </a>
+
+        <!-- User Profile Dropdown -->
+        <div class="user-menu-wrapper">
+          <button class="action-btn" id="user-menu-btn" title="My Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="user-dropdown" id="user-dropdown">
+            <!-- Dynamically populated by main.js -->
+          </div>
+        </div>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </div>
+      <button class="close-drawer-btn" id="close-drawer-btn">&times;</button>
+    </div>
+
+    <form class="mobile-search-form" id="mobile-search-form">
+      <input type="text" class="form-input" id="mobile-search-input" placeholder="Search craft items...">
+    </form>
+
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link active"><span>🏡</span> Home</a>
+      <a href="products.html" class="mobile-nav-link"><span>🛍️</span> Shop All</a>
+      <a href="products.html?category=Home%20%26%20Living" class="mobile-nav-link"><span>🏺</span> Home & Living</a>
+      <a href="products.html?category=Fashion" class="mobile-nav-link"><span>🧵</span> Fashion</a>
+      <a href="products.html?category=Electronics" class="mobile-nav-link"><span>⚡</span> Electronics</a>
+      <a href="products.html?category=Accessories" class="mobile-nav-link"><span>👜</span> Accessories</a>
+      <a href="products.html?category=Lifestyle" class="mobile-nav-link"><span>🌿</span> Lifestyle</a>
+    </div>
+
+    <div style="border-top: 1px solid var(--border); padding-top: 1rem;">
+      <a href="profile.html" class="mobile-nav-link" style="margin-bottom: 0.75rem;"><span>👤</span> My Profile</a>
+      <a href="orders.html" class="mobile-nav-link" style="margin-bottom: 0.75rem;"><span>📦</span> My Orders</a>
+      <a href="wishlist.html" class="mobile-nav-link" style="margin-bottom: 0.75rem;"><span>🤍</span> My Wishlist</a>
+      <a href="cart.html" class="mobile-nav-link"><span>🛒</span> Shopping Bag</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>🌿</span> Handcrafted with Integrity & Soul
+        </div>
+        <h1 class="hero-title">
+          Timeless creations for <span>conscious</span> living.
+        </h1>
+        <p class="hero-subtitle">
+          Explore thoughtful, small-batch artisanal treasures crafted by master makers. From hand-thrown ceramics to organic handwoven apparel, built to elevate everyday life.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="products.html" class="btn btn-primary btn-lg" id="hero-shop-btn">
+            Shop Catalog &rarr;
+          </a>
+          <a href="#featured-categories" class="btn btn-secondary btn-lg">
+            Explore Categories
+          </a>
+        </div>
+
+        <div class="hero-features">
+          <div class="hero-feat-item">
+            <span class="hero-feat-title">100% Genuine</span>
+            <span class="hero-feat-sub">Direct from artisans</span>
+          </div>
+          <div class="hero-feat-item">
+            <span class="hero-feat-title">Free Express</span>
+            <span class="hero-feat-sub">Orders above ₹999</span>
+          </div>
+          <div class="hero-feat-item">
+            <span class="hero-feat-title">Cash on Delivery</span>
+            <span class="hero-feat-sub">Pay safely at doorstep</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1000&q=80" alt="Handcrafted Ceramics and Coffee Server">
+        </div>
+        <div class="hero-floating-card">
+          <div class="floating-icon">🏺</div>
+          <div>
+            <div style="font-weight: 700; font-size: 0.95rem; color: var(--text-primary);">Artisan Pottery Collection</div>
+            <div style="font-size: 0.8rem; color: var(--text-muted);">Kiln-fired at 1280°C</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="categories-section" id="featured-categories">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Curated Categories</h2>
+          <p class="section-subtitle">Discover handcrafted collections made from sustainable natural materials</p>
+        </div>
+        <a href="products.html" class="btn btn-outline btn-sm">View All Categories &rarr;</a>
+      </div>
+
+      <div class="categories-grid" id="categories-grid">
+        <!-- Rendered dynamically by home.js -->
+        <div class="loading-container" style="grid-column: 1 / -1;">
+          <div class="spinner"></div>
+          <p>Loading categories...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Products -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Trending This Week</h2>
+          <p class="section-subtitle">The most coveted handcrafted designs loved by our community</p>
+        </div>
+        <a href="products.html?sort=popularity" class="btn btn-outline btn-sm">Explore Trending &rarr;</a>
+      </div>
+
+      <div class="products-grid" id="trending-products-grid">
+        <!-- Rendered dynamically by home.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotional Banner -->
+  <section class="promo-banner">
+    <div class="container">
+      <div class="promo-card">
+        <div class="promo-text">
+          <span class="badge badge-accent" style="margin-bottom: 0.85rem;">Limited Seasonal Offer</span>
+          <h2>Celebrate Genuine Craftsmanship</h2>
+          <p>Enjoy an exclusive 10% discount on your first order. Use code below at checkout with Cash on Delivery availability across all Indian pin codes.</p>
+          <div class="promo-code-box">
+            <span>PROMO CODE:</span>
+            <strong>CRAFT10</strong>
+          </div>
+          <div>
+            <a href="products.html" class="btn btn-accent btn-lg">Claim Your 10% Discount</a>
+          </div>
+        </div>
+        <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg);">
+          <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=800&q=80" alt="Artisan Desk Setup">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Best-Selling Masterpieces</h2>
+          <p class="section-subtitle">Highly rated pieces with five-star verified customer feedback</p>
+        </div>
+        <a href="products.html?sort=rating" class="btn btn-outline btn-sm">View Best Sellers &rarr;</a>
+      </div>
+
+      <div class="products-grid" id="bestseller-products-grid">
+        <!-- Rendered dynamically by home.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Fresh From The Studios</h2>
+          <p class="section-subtitle">Newly cataloged handcrafted pieces just added this month</p>
+        </div>
+        <a href="products.html?sort=newest" class="btn btn-outline btn-sm">View New Arrivals &rarr;</a>
+      </div>
+
+      <div class="products-grid" id="newarrivals-products-grid">
+        <!-- Rendered dynamically by home.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header text-center" style="display:block;">
+        <h2 class="section-title">Loved by Thoughtful Homes</h2>
+        <p class="section-subtitle">Read what our verified community of patrons says about CraftCart</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-comment">"The walnut charging stand is exceptional. It is so rare to find technology accessories built with genuine solid wood rather than plastic veneer. Delivery was fast and COD was seamless."</p>
+          <div class="test-author">
+            <div class="test-avatar">AS</div>
+            <div class="test-meta">
+              <h5>Aarav Sharma</h5>
+              <span>Bengaluru, Karnataka</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-comment">"I ordered the stoneware coffee dripper and carafe set. The tactile speckled finish makes every morning espresso ritual memorable. You can feel the master maker's care."</p>
+          <div class="test-author">
+            <div class="test-avatar">PN</div>
+            <div class="test-meta">
+              <h5>Priya Nair</h5>
+              <span>Kochi, Kerala</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="test-stars">★★★★★</div>
+          <p class="test-comment">"The handspun Khadi overshirt fits like a dream. Breathable, natural botanical dye, and stunning corozo buttons. CraftCart has become my favorite store for conscious fashion."</p>
+          <div class="test-author">
+            <div class="test-avatar">RK</div>
+            <div class="test-meta">
+              <h5>Rohan Kapoor</h5>
+              <span>New Delhi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-box">
+        <span class="badge badge-primary" style="margin-bottom: 0.75rem;">Community Newsletter</span>
+        <h3>Join the CraftCart Journal</h3>
+        <p>Subscribe to receive artisan stories, early access to studio drops, and seasonal subscriber discounts straight to your inbox.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <input type="email" class="newsletter-input" id="newsletter-email" placeholder="Enter your email address..." required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <div class="brand-icon">C</div>
+            Craft<span class="brand-accent">Cart</span>
+          </a>
+          <p class="footer-about">
+            CraftCart is an independent e-commerce marketplace celebrating authentic craftsmanship, natural materials, and honest artisan labor across India.
+          </p>
+          <ul class="footer-contact-list">
+            <li>📍 Indiranagar, Bengaluru, KA 560038</li>
+            <li>📞 +91 98765 43210</li>
+            <li>✉️ support@craftcart.com</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore Shop</h4>
+          <ul class="footer-links">
+            <li><a href="products.html">All Collections</a></li>
+            <li><a href="products.html?category=Home%20%26%20Living">Home & Living</a></li>
+            <li><a href="products.html?category=Fashion">Fashion & Apparel</a></li>
+            <li><a href="products.html?category=Electronics">Wood & Tech</a></li>
+            <li><a href="products.html?category=Accessories">Leather Goods</a></li>
+            <li><a href="products.html?category=Lifestyle">Natural Care</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="orders.html">Track My Order</a></li>
+            <li><a href="cart.html">Shopping Bag</a></li>
+            <li><a href="wishlist.html">Saved Wishlist</a></li>
+            <li><a href="profile.html">Account Settings</a></li>
+            <li><a href="products.html">Cash on Delivery Info</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Internship Project</h4>
+          <p style="font-size:0.875rem; color:#949e98; margin-bottom: 1rem; line-height: 1.5;">
+            Developed for CodeAlpha Full Stack Web Development Internship (Task 1: Simple E-commerce Store).
+          </p>
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <a href="admin.html" class="btn btn-secondary btn-sm" style="background:#242d27; color:#ffffff; border-color:#36453b;">
+              🛡️ Admin Dashboard
+            </a>
+            <a href="login.html" class="btn btn-outline btn-sm" style="border-color:#36453b; color:#9ba8a0;">
+              Demo Accounts &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 CraftCart E-Commerce. All rights reserved. Built with Node.js, Express, MongoDB & Vanilla JS.</div>
+        <div>Designed for CodeAlpha Internship Evaluation</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — CraftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    ✨ Free Express Delivery on orders above ₹999 | Genuine Cash on Delivery Guaranteed
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Shop</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="user-menu-wrapper">
+          <button class="action-btn" id="user-menu-btn" title="My Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="user-dropdown" id="user-dropdown"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <a href="cart.html">Cart</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Checkout</span>
+    </div>
+  </div>
+
+  <!-- Checkout Content -->
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 1.5rem;">
+      <div>
+        <h1 class="section-title">Shipping & Payment</h1>
+        <p class="section-subtitle">Confirm delivery address and place order via Cash on Delivery</p>
+      </div>
+    </div>
+
+    <div class="checkout-grid">
+      
+      <!-- Left Column: Shipping & Payment -->
+      <div>
+        
+        <!-- Saved Addresses -->
+        <div class="cart-items-card" style="margin-bottom: 2rem;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem;">Delivery Address</h3>
+          
+          <div id="saved-addresses-container" class="saved-addresses-grid">
+            <!-- Populated by checkout.js if user has saved addresses -->
+          </div>
+
+          <!-- Address Form Fields -->
+          <form id="checkout-address-form">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="addr-name">Full Name *</label>
+                <input type="text" class="form-input" id="addr-name" placeholder="Full Name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="addr-phone">Phone Number *</label>
+                <input type="tel" class="form-input" id="addr-phone" placeholder="10-digit mobile number" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="addr-street">Street Address / House No. / Landmark *</label>
+              <input type="text" class="form-input" id="addr-street" placeholder="e.g. 108 Green Glen Layout, 4th Cross" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="addr-city">City *</label>
+                <input type="text" class="form-input" id="addr-city" placeholder="City" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="addr-state">State *</label>
+                <input type="text" class="form-input" id="addr-state" placeholder="State" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="addr-postal">PIN Code *</label>
+                <input type="text" class="form-input" id="addr-postal" placeholder="6-digit PIN" required>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="cart-items-card">
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Payment Method</h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            For this CodeAlpha internship project, we implement authentic Cash on Delivery. No fake payment gateway simulation is used.
+          </p>
+
+          <div class="payment-method-badge">
+            <input type="radio" name="payment-method" id="payment-cod" value="COD" checked>
+            <label for="payment-cod" style="cursor: pointer; display: flex; align-items: center; gap: 0.75rem; width: 100%;">
+              <span style="font-size: 1.5rem;">💵</span>
+              <div>
+                <strong>Cash on Delivery (COD)</strong>
+                <div style="font-size: 0.8rem; color: var(--text-secondary);">Pay in cash or UPI when your parcel is delivered to your door</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Order Summary -->
+      <div>
+        <div class="order-summary-card">
+          <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);">
+            Order Review
+          </h3>
+
+          <div id="checkout-items-list" style="margin-bottom: 1.5rem; max-height: 280px; overflow-y: auto;">
+            <!-- Items rendered by checkout.js -->
+          </div>
+
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <strong id="checkout-subtotal">₹0</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>Shipping</span>
+            <span id="checkout-shipping" style="font-weight: 600;">₹0</span>
+          </div>
+
+          <div class="summary-line" id="checkout-discount-row" style="display: none; color: var(--success);">
+            <span>Coupon Discount</span>
+            <strong id="checkout-discount">- ₹0</strong>
+          </div>
+
+          <div class="summary-line total">
+            <span>Payable Amount</span>
+            <span id="checkout-total" style="color: var(--primary);">₹0</span>
+          </div>
+
+          <button type="button" class="btn btn-primary btn-lg btn-block" id="place-order-btn">
+            Place Order (Cash on Delivery)
+          </button>
+
+          <div style="margin-top: 1rem; text-align: center; font-size: 0.8rem; color: var(--text-muted);">
+            🔒 Server validates prices & inventory from MongoDB
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Order Confirmed Modal -->
+  <div class="modal-overlay" id="order-confirmed-modal">
+    <div class="modal-card" style="text-align: center; padding: 2.5rem 2rem;">
+      <div style="font-size: 3.5rem; color: var(--success); margin-bottom: 1rem;">🎉</div>
+      <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem;">Order Successfully Placed!</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Thank you for choosing CraftCart. Your handcrafted items will be carefully packaged in eco-friendly wraps.
+      </p>
+
+      <div style="background: var(--bg-secondary); border-radius: var(--radius-md); padding: 1.25rem; text-align: left; margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span class="text-muted">Order Number:</span>
+          <strong id="conf-order-num">CC-0000</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+          <span class="text-muted">Payable on Delivery:</span>
+          <strong id="conf-order-amount">₹0</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span class="text-muted">Deliver To:</span>
+          <span id="conf-order-address" style="text-align: right; max-width: 250px; font-size: 0.85rem;">Address</span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="orders.html" class="btn btn-primary">Track in Order History</a>
+        <a href="index.html" class="btn btn-secondary">Back to Storefront</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

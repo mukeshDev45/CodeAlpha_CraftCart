@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile — CraftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="header-top">
+    ✨ Free Express Delivery on orders above ₹999 | User Profile & Security Settings
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Shop</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+      </nav>
+
+      <form class="header-search" id="global-search-form">
+        <span class="search-icon-btn">🔍</span>
+        <input type="text" class="search-input" id="global-search-input" placeholder="Search handcrafted items...">
+      </form>
+
+      <div class="header-actions">
+        <a href="wishlist.html" class="action-btn" title="Saved Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="action-badge" id="nav-wishlist-badge">0</span>
+        </a>
+
+        <a href="cart.html" class="action-btn" title="Shopping Bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="action-badge" id="nav-cart-badge">0</span>
+        </a>
+
+        <div class="user-menu-wrapper">
+          <button class="action-btn" id="user-menu-btn" title="My Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="user-dropdown" id="user-dropdown"></div>
+        </div>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </div>
+      <button class="close-drawer-btn" id="close-drawer-btn">&times;</button>
+    </div>
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link"><span>🏡</span> Home</a>
+      <a href="products.html" class="mobile-nav-link"><span>🛍️</span> Shop All</a>
+      <a href="profile.html" class="mobile-nav-link active"><span>👤</span> My Profile</a>
+      <a href="orders.html" class="mobile-nav-link"><span>📦</span> My Orders</a>
+      <a href="wishlist.html" class="mobile-nav-link"><span>🤍</span> Wishlist</a>
+      <a href="cart.html" class="mobile-nav-link"><span>🛒</span> Shopping Bag</a>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>My Profile</span>
+    </div>
+  </div>
+
+  <!-- Profile Content -->
+  <div class="container" style="padding-bottom: 4rem;">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">Account Settings</h1>
+        <p class="section-subtitle">Manage personal profile details, passwords, and saved delivery addresses</p>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 360px 1fr; gap: 2rem; align-items: start;">
+      
+      <!-- Left Column: User Card -->
+      <div class="cart-items-card" style="text-align: center;">
+        <div style="width: 80px; height: 80px; border-radius: var(--radius-full); background: var(--primary-light); color: var(--primary); font-size: 2rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;" id="profile-avatar-letter">
+          U
+        </div>
+
+        <h3 id="profile-name" style="font-size: 1.35rem; margin-bottom: 0.25rem;">Loading Name...</h3>
+        <p id="profile-email" style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">user@example.com</p>
+
+        <div style="margin-bottom: 1.5rem;">
+          <span class="badge badge-primary" id="profile-role-badge">Customer Member</span>
+        </div>
+
+        <div style="background: var(--bg-primary); border-radius: var(--radius-sm); border: 1px solid var(--border); padding: 1rem; text-align: left; font-size: 0.875rem; margin-bottom: 1.5rem;">
+          <div style="color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase; font-weight: 600;">Registered Phone</div>
+          <div id="profile-phone" style="font-weight: 600; margin-top: 0.2rem;">—</div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <button class="btn btn-secondary btn-block" onclick="openEditProfileModal()">
+            Edit Profile Details
+          </button>
+          <button class="btn btn-outline btn-block" onclick="openChangePasswordModal()">
+            Change Password
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Column: Address Book -->
+      <div class="cart-items-card">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border);">
+          <div>
+            <h3 style="font-size: 1.25rem;">Saved Delivery Addresses</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Manage default shipping destinations for fast checkout</p>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="openAddAddressModal()">
+            + Add New Address
+          </button>
+        </div>
+
+        <div id="profile-addresses-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+          <div class="spinner"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal-overlay" id="edit-profile-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size: 1.2rem;">Edit Profile Details</h3>
+        <button class="close-drawer-btn" onclick="closeModal('edit-profile-modal')">&times;</button>
+      </div>
+      <form id="edit-profile-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="edit-name">Full Name</label>
+            <input type="text" class="form-input" id="edit-name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="edit-phone">Phone Number</label>
+            <input type="tel" class="form-input" id="edit-phone" placeholder="10-digit mobile number">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('edit-profile-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal-overlay" id="change-password-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size: 1.2rem;">Change Account Password</h3>
+        <button class="close-drawer-btn" onclick="closeModal('change-password-modal')">&times;</button>
+      </div>
+      <form id="change-password-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="curr-pass">Current Password</label>
+            <input type="password" class="form-input" id="curr-pass" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-pass">New Password (min 6 characters)</label>
+            <input type="password" class="form-input" id="new-pass" minlength="6" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="conf-pass">Confirm New Password</label>
+            <input type="password" class="form-input" id="conf-pass" minlength="6" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('change-password-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Update Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add Address Modal -->
+  <div class="modal-overlay" id="add-address-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size: 1.2rem;">Add New Delivery Address</h3>
+        <button class="close-drawer-btn" onclick="closeModal('add-address-modal')">&times;</button>
+      </div>
+      <form id="add-address-form">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="new-addr-label">Address Tag / Label</label>
+            <input type="text" class="form-input" id="new-addr-label" placeholder="e.g. Home, Studio, Office">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-addr-street">Street Address / Landmark *</label>
+            <input type="text" class="form-input" id="new-addr-street" placeholder="Flat No., Building, Street" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="new-addr-city">City *</label>
+              <input type="text" class="form-input" id="new-addr-city" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="new-addr-state">State *</label>
+              <input type="text" class="form-input" id="new-addr-state" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-addr-postal">PIN Code *</label>
+            <input type="text" class="form-input" id="new-addr-postal" required>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+            <input type="checkbox" id="new-addr-default">
+            <label for="new-addr-default" style="font-size: 0.875rem; cursor: pointer;">Set as default delivery address</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('add-address-modal')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Address</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 CraftCart E-Commerce. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

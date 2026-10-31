@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Wishlist — CraftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="header-top">
+    ✨ Free Express Delivery on orders above ₹999 | Save Your Handcrafted Favorites
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Shop</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="orders.html" class="nav-link">Orders</a>
+      </nav>
+
+      <form class="header-search" id="global-search-form">
+        <span class="search-icon-btn">🔍</span>
+        <input type="text" class="search-input" id="global-search-input" placeholder="Search handcrafted items...">
+      </form>
+
+      <div class="header-actions">
+        <a href="wishlist.html" class="action-btn active" title="Saved Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="action-badge" id="nav-wishlist-badge">0</span>
+        </a>
+
+        <a href="cart.html" class="action-btn" title="Shopping Bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="action-badge" id="nav-cart-badge">0</span>
+        </a>
+
+        <div class="user-menu-wrapper">
+          <button class="action-btn" id="user-menu-btn" title="My Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="user-dropdown" id="user-dropdown"></div>
+        </div>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </div>
+      <button class="close-drawer-btn" id="close-drawer-btn">&times;</button>
+    </div>
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link"><span>🏡</span> Home</a>
+      <a href="products.html" class="mobile-nav-link"><span>🛍️</span> Shop All</a>
+      <a href="profile.html" class="mobile-nav-link"><span>👤</span> My Profile</a>
+      <a href="orders.html" class="mobile-nav-link"><span>📦</span> My Orders</a>
+      <a href="wishlist.html" class="mobile-nav-link active"><span>🤍</span> Wishlist</a>
+      <a href="cart.html" class="mobile-nav-link"><span>🛒</span> Shopping Bag</a>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>My Wishlist</span>
+    </div>
+  </div>
+
+  <!-- Wishlist Content -->
+  <div class="container" style="padding-bottom: 4rem;">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">Saved Wishlist</h1>
+        <p class="section-subtitle" id="wishlist-header-count">Your curated personal artisan wishlist</p>
+      </div>
+      <a href="products.html" class="btn btn-secondary btn-sm">Explore More Goods &rarr;</a>
+    </div>
+
+    <!-- Wishlist Grid -->
+    <div class="products-grid" id="wishlist-grid">
+      <div class="loading-container" style="grid-column: 1 / -1;">
+        <div class="spinner"></div>
+        <p>Loading your saved creations...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 CraftCart E-Commerce. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/wishlist.js"></script>
+</body>
+</html>

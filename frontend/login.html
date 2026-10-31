@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — CraftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container" style="justify-content: center;">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Auth Card Container -->
+  <div class="auth-page-container">
+    <div class="auth-card">
+      
+      <div class="auth-header">
+        <h2>Welcome Back</h2>
+        <p>Sign in to your CraftCart account to manage orders, wishlist & checkout</p>
+      </div>
+
+      <!-- Quick Demo Login Credentials Box -->
+      <div class="demo-credentials-box">
+        <div class="demo-title">⚡ 1-Click Evaluation Credentials</div>
+        <div class="demo-btn-group">
+          <button type="button" class="btn btn-secondary btn-sm" id="demo-customer-btn" style="flex:1;">
+            👤 Demo Customer
+          </button>
+          <button type="button" class="btn btn-secondary btn-sm" id="demo-admin-btn" style="flex:1;">
+            🛡️ Demo Admin
+          </button>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input type="email" class="form-input" id="login-email" placeholder="name@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.45rem;">
+            <label class="form-label" for="login-password" style="margin-bottom: 0;">Password</label>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Default: Customer@12345</span>
+          </div>
+          <input type="password" class="form-input" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; font-size: 0.875rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+            <input type="checkbox" id="remember-me" checked>
+            <span>Remember this device</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="login-submit-btn">
+          Sign In
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 1.75rem; font-size: 0.9rem; color: var(--text-secondary);">
+        New to CraftCart? <a href="register.html" style="color: var(--primary); font-weight: 600;">Create an account</a>
+      </div>
+
+      <div style="text-align: center; margin-top: 1rem;">
+        <a href="index.html" style="font-size: 0.85rem; color: var(--text-muted);">&larr; Return to storefront</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

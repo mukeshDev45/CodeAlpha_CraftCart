@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order History & Tracking — CraftCart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="header-top">
+    ✨ Free Express Delivery on orders above ₹999 | Live Order Status Tracking
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Shop</a>
+        <a href="cart.html" class="nav-link">Cart</a>
+        <a href="orders.html" class="nav-link active">Orders</a>
+      </nav>
+
+      <form class="header-search" id="global-search-form">
+        <span class="search-icon-btn">🔍</span>
+        <input type="text" class="search-input" id="global-search-input" placeholder="Search handcrafted items...">
+      </form>
+
+      <div class="header-actions">
+        <a href="wishlist.html" class="action-btn" title="Saved Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="action-badge" id="nav-wishlist-badge">0</span>
+        </a>
+
+        <a href="cart.html" class="action-btn" title="Shopping Bag">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="action-badge" id="nav-cart-badge">0</span>
+        </a>
+
+        <div class="user-menu-wrapper">
+          <button class="action-btn" id="user-menu-btn" title="My Account">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          <div class="user-dropdown" id="user-dropdown"></div>
+        </div>
+
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="brand-icon">C</div>
+        Craft<span class="brand-accent">Cart</span>
+      </div>
+      <button class="close-drawer-btn" id="close-drawer-btn">&times;</button>
+    </div>
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link"><span>🏡</span> Home</a>
+      <a href="products.html" class="mobile-nav-link"><span>🛍️</span> Shop All</a>
+      <a href="profile.html" class="mobile-nav-link"><span>👤</span> My Profile</a>
+      <a href="orders.html" class="mobile-nav-link active"><span>📦</span> My Orders</a>
+      <a href="wishlist.html" class="mobile-nav-link"><span>🤍</span> Wishlist</a>
+      <a href="cart.html" class="mobile-nav-link"><span>🛒</span> Shopping Bag</a>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>My Orders</span>
+    </div>
+  </div>
+
+  <!-- Orders Content -->
+  <div class="container" style="padding-bottom: 4rem;">
+    <div class="section-header">
+      <div>
+        <h1 class="section-title">My Orders</h1>
+        <p class="section-subtitle">View past purchases, dispatch updates, and detailed delivery timelines</p>
+      </div>
+      <a href="products.html" class="btn btn-secondary btn-sm">Explore More Goods &rarr;</a>
+    </div>
+
+    <!-- Orders List Container -->
+    <div id="orders-list-container">
+      <div class="loading-container">
+        <div class="spinner"></div>
+        <p>Loading your orders...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Details & Tracking Modal -->
+  <div class="modal-overlay" id="order-details-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size: 1.25rem;">Order Details</h3>
+          <span style="font-size: 0.85rem; color: var(--text-muted);" id="modal-order-number">CC-0000</span>
+        </div>
+        <button class="close-drawer-btn" onclick="closeOrderDetailsModal()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; background: var(--bg-secondary); padding: 1rem; border-radius: var(--radius-sm);">
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Current Status</div>
+            <div id="modal-order-status" style="margin-top: 0.25rem;"></div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Order Date</div>
+            <div id="modal-order-date" style="font-size: 0.85rem; font-weight: 500;"></div>
+          </div>
+          <div>
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Payment</div>
+            <div id="modal-payment-method" style="font-size: 0.85rem; font-weight: 600;"></div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">Delivery Address</h4>
+        <div style="background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 1.5rem; font-size: 0.9rem;">
+          <strong id="modal-shipping-name">Full Name</strong><br>
+          <span id="modal-shipping-address">Street, City, State</span><br>
+          <span style="color: var(--text-muted);">Contact: <span id="modal-shipping-phone">Phone</span></span>
+        </div>
+
+        <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">Tracking Timeline</h4>
+        <div id="modal-order-timeline" style="margin-bottom: 1.5rem; border-left: 2px solid var(--border-light); padding-left: 1rem;">
+          <!-- Rendered by orders.js -->
+        </div>
+
+        <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">Payment Breakdown</h4>
+        <div style="font-size: 0.9rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span>Subtotal:</span>
+            <span id="modal-subtotal">₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span>Shipping Cost:</span>
+            <span id="modal-shipping">₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; color: var(--success);">
+            <span>Discount:</span>
+            <span id="modal-discount">- ₹0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; border-top: 1px solid var(--border); padding-top: 0.65rem; margin-top: 0.65rem;">
+            <span>Total:</span>
+            <span id="modal-total" style="color: var(--primary);">₹0</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeOrderDetailsModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 CraftCart E-Commerce. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/orders.js"></script>
+</body>
+</html>
