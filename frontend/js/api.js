@@ -2,9 +2,11 @@
  * CraftCart Centralized API Client & State Helper
  */
 
-const API_BASE = (window.location.port === '5000' || window.location.hostname === 'localhost')
-  ? (window.location.port === '5000' ? '/api' : 'http://localhost:5000/api')
-  : '/api';
+const API_BASE = (window.location.port === '5000')
+  ? '/api'
+  : (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? 'http://localhost:5000/api'
+    : '/api';
 
 const api = {
   getToken: () => localStorage.getItem('craftcart_token'),

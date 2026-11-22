@@ -34,7 +34,7 @@ exports.toggleWishlist = async (req, res, next) => {
     }
 
     const user = await User.findById(req.user.id);
-    const index = user.wishlist.indexOf(productId);
+    const index = user.wishlist.findIndex(id => id.toString() === productId);
 
     let isAdded = false;
     if (index > -1) {

@@ -1901,7 +1901,7 @@ p { color: var(--text-secondary); }
 }
 
 .modal-overlay.show {
-  display: flex;
+  display: flex !important;
 }
 
 .modal-card {

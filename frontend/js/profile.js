@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loadProfile();
   setupProfileForms();
+  setupButtonListeners();
+  setupModalDismissers();
 });
 
 async function loadProfile() {
@@ -62,11 +64,11 @@ function renderAddressBook(addresses) {
       </p>
       <div style="display: flex; gap: 0.75rem; border-top: 1px solid var(--border-light); padding-top: 0.65rem;">
         ${!addr.isDefault ? `
-          <button class="btn btn-outline btn-sm" onclick="setDefaultAddress('${addr._id}')">
+          <button class="btn btn-outline btn-sm" onclick="setDefaultAddress('${addr._id}', this)">
             Set as Default
           </button>
         ` : ''}
-        <button class="btn btn-secondary btn-sm" onclick="deleteAddress('${addr._id}')" style="color: var(--danger);">
+        <button class="btn btn-secondary btn-sm" onclick="deleteAddress('${addr._id}', this)" style="color: var(--danger);">
           Delete
         </button>
       </div>
@@ -148,19 +150,63 @@ function setupProfileForms() {
   }
 }
 
+function setupButtonListeners() {
+  const editBtn = document.getElementById('btn-edit-profile');
+  if (editBtn) {
+    editBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.openEditProfileModal();
+    });
+  }
+
+  const passBtn = document.getElementById('btn-change-password');
+  if (passBtn) {
+    passBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.openChangePasswordModal();
+    });
+  }
+
+  const addrBtn = document.getElementById('btn-add-address');
+  if (addrBtn) {
+    addrBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.openAddAddressModal();
+    });
+  }
+}
+
+function setupModalDismissers() {
+  // Allow clicking outside the modal content (on the dark background) to close it
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('show');
+      }
+    });
+  });
+}
+
 window.openEditProfileModal = function () {
-  if (!userProfile) return;
-  document.getElementById('edit-name').value = userProfile.name;
-  document.getElementById('edit-phone').value = userProfile.phone || '';
-  document.getElementById('edit-profile-modal').classList.add('show');
+  const current = userProfile || api.getUser();
+  if (current) {
+    const nameInput = document.getElementById('edit-name');
+    const phoneInput = document.getElementById('edit-phone');
+    if (nameInput) nameInput.value = current.name || '';
+    if (phoneInput) phoneInput.value = current.phone || '';
+  }
+  const modal = document.getElementById('edit-profile-modal');
+  if (modal) modal.classList.add('show');
 };
 
 window.openChangePasswordModal = function () {
-  document.getElementById('change-password-modal').classList.add('show');
+  const modal = document.getElementById('change-password-modal');
+  if (modal) modal.classList.add('show');
 };
 
 window.openAddAddressModal = function () {
-  document.getElementById('add-address-modal').classList.add('show');
+  const modal = document.getElementById('add-address-modal');
+  if (modal) modal.classList.add('show');
 };
 
 window.closeModal = function (modalId) {
@@ -168,23 +214,38 @@ window.closeModal = function (modalId) {
   if (modal) modal.classList.remove('show');
 };
 
-window.setDefaultAddress = async function (addressId) {
+window.setDefaultAddress = async function (addressId, btn) {
   try {
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Updating...';
+    }
     await api.put(`/auth/addresses/${addressId}/default`);
     showToast('Default address updated.', 'success');
-    loadProfile();
+    await loadProfile();
   } catch (err) {
-    showToast(err.message, 'error');
+    showToast(err.message || 'Could not update default address.', 'error');
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Set as Default';
+    }
   }
 };
 
-window.deleteAddress = async function (addressId) {
-  if (!confirm('Remove this address from your account?')) return;
+window.deleteAddress = async function (addressId, btn) {
   try {
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Deleting...';
+    }
     await api.delete(`/auth/addresses/${addressId}`);
     showToast('Address removed.', 'info');
-    loadProfile();
+    await loadProfile();
   } catch (err) {
-    showToast(err.message, 'error');
+    showToast(err.message || 'Could not delete address.', 'error');
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Delete';
+    }
   }
 };

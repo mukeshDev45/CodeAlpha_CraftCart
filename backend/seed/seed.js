@@ -58,7 +58,7 @@ const seedDatabase = async () => {
     // 3. Create Sample Customer user
     const customerPasswordHash = await bcrypt.hash('Customer@12345', salt);
     const customerUser = await User.create({
-      name: 'Aarav Sharma',
+      name: 'Mukesh Prajapati',
       email: 'demo@craftcart.com',
       phone: '9812345678',
       passwordHash: customerPasswordHash,
@@ -213,7 +213,7 @@ const seedDatabase = async () => {
     console.log('Sample orders registered.');
 
     // 8. Add sample newsletter subscriber
-    await Newsletter.create({ email: 'aarav.sharma@example.com' });
+    await Newsletter.create({ email: 'mukesh.prajapati@example.com' });
 
     console.log('\n======================================================');
     console.log('✅ CRAFTCART DATABASE SEEDED SUCCESSFULLY!');

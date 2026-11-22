@@ -75,8 +75,12 @@ reviewSchema.post('save', function () {
   this.constructor.calculateProductRating(this.product);
 });
 
-reviewSchema.post('remove', function () {
-  this.constructor.calculateProductRating(this.product);
+reviewSchema.post('findOneAndDelete', async function (doc) {
+  if (doc) {
+    const Product = mongoose.model('Product');
+    const ReviewModel = mongoose.model('Review');
+    await ReviewModel.calculateProductRating(doc.product);
+  }
 });
 
 module.exports = mongoose.model('Review', reviewSchema);

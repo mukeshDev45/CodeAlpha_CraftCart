@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Profile — CraftCart</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/style.css?v=2.0">
+  <link rel="stylesheet" href="css/responsive.css?v=2.0">
 </head>
 <body>
 
@@ -125,10 +125,10 @@
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <button class="btn btn-secondary btn-block" onclick="openEditProfileModal()">
+          <button class="btn btn-secondary btn-block" id="btn-edit-profile" onclick="openEditProfileModal()">
             Edit Profile Details
           </button>
-          <button class="btn btn-outline btn-block" onclick="openChangePasswordModal()">
+          <button class="btn btn-outline btn-block" id="btn-change-password" onclick="openChangePasswordModal()">
             Change Password
           </button>
         </div>
@@ -141,7 +141,7 @@
             <h3 style="font-size: 1.25rem;">Saved Delivery Addresses</h3>
             <p style="font-size: 0.85rem; color: var(--text-muted);">Manage default shipping destinations for fast checkout</p>
           </div>
-          <button class="btn btn-primary btn-sm" onclick="openAddAddressModal()">
+          <button class="btn btn-primary btn-sm" id="btn-add-address" onclick="openAddAddressModal()">
             + Add New Address
           </button>
         </div>
@@ -263,8 +263,8 @@
     </div>
   </footer>
 
-  <script src="js/api.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/profile.js"></script>
+  <script src="js/api.js?v=2.1"></script>
+  <script src="js/main.js?v=2.1"></script>
+  <script src="js/profile.js?v=2.1"></script>
 </body>
 </html>

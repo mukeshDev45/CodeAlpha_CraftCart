@@ -17,7 +17,7 @@
     "fullstack",
     "codealpha"
   ],
-  "author": "CodeAlpha Intern",
+  "author": "Mukesh Prajapati",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

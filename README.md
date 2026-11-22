@@ -319,7 +319,7 @@ node backend/test-e2e.js
 Use this script during your CodeAlpha internship evaluation or interview video:
 
 ```text
-"Hello everyone, my name is [Your Name], and this is my submission for the CodeAlpha Full Stack Web Development Internship — Task 1: Simple E-Commerce Store.
+"Hello everyone, my name is Mukesh Prajapati, and this is my submission for the CodeAlpha Full Stack Web Development Internship — Task 1: Simple E-Commerce Store.
 
 I have developed 'CraftCart', a full-stack e-commerce web platform for authentic handcrafted and artisanal lifestyle goods.
 

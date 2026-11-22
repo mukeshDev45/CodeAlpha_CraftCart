@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body style="min-height: 100vh; display: flex; flex-direction: column;">
 
   <!-- Header -->
@@ -22,7 +24,7 @@
   <!-- Auth Card Container -->
   <div class="auth-page-container">
     <div class="auth-card">
-      
+
       <div class="auth-header">
         <h2>Welcome Back</h2>
         <p>Sign in to your CraftCart account to manage orders, wishlist & checkout</p>
@@ -45,7 +47,8 @@
       <form id="login-form">
         <div class="form-group">
           <label class="form-label" for="login-email">Email Address</label>
-          <input type="email" class="form-input" id="login-email" placeholder="name@example.com" required autocomplete="email">
+          <input type="email" class="form-input" id="login-email" placeholder="name@example.com" required
+            autocomplete="email">
         </div>
 
         <div class="form-group">
@@ -53,10 +56,12 @@
             <label class="form-label" for="login-password" style="margin-bottom: 0;">Password</label>
             <span style="font-size: 0.8rem; color: var(--text-muted);">Default: Customer@12345</span>
           </div>
-          <input type="password" class="form-input" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+          <input type="password" class="form-input" id="login-password" placeholder="••••••••" required
+            autocomplete="current-password">
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; font-size: 0.875rem;">
+        <div
+          style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; font-size: 0.875rem;">
           <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
             <input type="checkbox" id="remember-me" checked>
             <span>Remember this device</span>
@@ -82,4 +87,5 @@
   <script src="js/api.js"></script>
   <script src="js/auth.js"></script>
 </body>
+
 </html>
