@@ -13,7 +13,8 @@ const sampleProducts = require('./productsData');
 const seedDatabase = async () => {
   try {
     const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/craftcart';
-    console.log(`\nConnecting to MongoDB: ${mongoUri}...`);
+    const safeUri = mongoUri.replace(/\/\/(.*?):(.*?)@/g, '//$1:****@');
+    console.log(`\nConnecting to MongoDB: ${safeUri}...`);
     await mongoose.connect(mongoUri);
     console.log('MongoDB Connected successfully.');
 
@@ -228,7 +229,8 @@ const seedDatabase = async () => {
 
     process.exit(0);
   } catch (err) {
-    console.error('Database seed error:', err);
+    const safeError = (err.message || '').replace(/\/\/(.*?):(.*?)@/g, '//$1:****@');
+    console.error('Database seed error:', safeError);
     process.exit(1);
   }
 };

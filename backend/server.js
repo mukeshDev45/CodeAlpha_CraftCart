@@ -18,9 +18,6 @@ const orderRoutes = require('./routes/orderRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 
-// Initialize database connection
-connectDB();
-
 const app = express();
 
 // Security HTTP headers with permissive CSP for fonts, images & CDNs
@@ -98,14 +95,29 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 const HOST = '0.0.0.0';
 
-const server = app.listen(PORT, HOST, () => {
-  console.log(`\n======================================================`);
-  console.log(`🚀 CraftCart Server running at http://localhost:${PORT}`);
-  console.log(`🌐 Storefront: http://localhost:${PORT}`);
-  console.log(`🛡️  Admin Dashboard: http://localhost:${PORT}/admin.html`);
-  console.log(`📡 API Base: http://localhost:${PORT}/api`);
-  console.log(`======================================================\n`);
-});
+// Start server only after database connection succeeds
+const startServer = async () => {
+  try {
+    await connectDB();
+
+    const server = app.listen(PORT, HOST, () => {
+      console.log(`\n======================================================`);
+      console.log(`🚀 CraftCart Server running at http://localhost:${PORT}`);
+      console.log(`🌐 Storefront: http://localhost:${PORT}`);
+      console.log(`🛡️  Admin Dashboard: http://localhost:${PORT}/admin.html`);
+      console.log(`📡 API Base: http://localhost:${PORT}/api`);
+      console.log(`======================================================\n`);
+    });
+
+    return server;
+  } catch (error) {
+    console.error(`❌ [Server Aborted]: Server did not start because database connection could not be established.`);
+    process.exit(1);
+  }
+};
+
+// Start the application
+startServer();
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
